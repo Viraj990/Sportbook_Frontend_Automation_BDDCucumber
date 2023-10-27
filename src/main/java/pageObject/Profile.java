@@ -13,31 +13,41 @@ public class Profile {
 		PageFactory.initElements(rdriver, this);
 	}
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//a[@aria-label='username']")
 	WebElement profilelink;
 	
-	@FindBy(xpath="")
-	WebElement usernamesection;
-	
-	@FindBy(xpath="")
+	@FindBy(xpath="//textarea[@name='address']")
 	WebElement txtAddress;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//input[@name='password']")
 	WebElement Txtoldpwd;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//input[@name='new_password']")
 	WebElement Txtnewpwd;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//button[text()='Update Profile']")
 	WebElement btnupdate;
 	
+	@FindBy(xpath="//input[@name='first_name']")
+	WebElement first_name;
+	
+	@FindBy(xpath="//input[@name='last_name']")
+	WebElement last_name;
 	
 	public void profileredirection() {
 		profilelink.click();
 	}
+	public void setfname(String fname) {
+		first_name.sendKeys(fname);
+	}
+	public void setlname(String lname) {
+		last_name.sendKeys(lname);
+	}
 	
-	public void fetchusername() {
-		usernamesection.getText();
+	public void clearfiled() {
+		first_name.clear();
+		last_name.clear();
+		txtAddress.clear();
 	}
 	
 	public void setaddress(String Address) {
@@ -53,6 +63,6 @@ public class Profile {
 	}
 	
 	public void updatebtn() {
-		btnupdate.sendKeys();
+		btnupdate.click();
 	}
 }
